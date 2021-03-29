@@ -42,15 +42,15 @@ make_statusbar! {
         Instant::now() + Duration::from_secs(1)
     },
     task battery: String {
-        battery = get_battery().unwrap_or(String::from("???"));
+        battery = get_battery().unwrap_or_else(|_| String::from("???"));
         Instant::now() + Duration::from_secs(60)
     },
     task memory: String {
-        memory = get_memory().unwrap_or(String::from("???"));
+        memory = get_memory().unwrap_or_else(|_| String::from("???"));
         Instant::now() + Duration::from_secs(1)
     },
     task load: String {
-        load = get_load().unwrap_or(String::from("???"));
+        load = get_load().unwrap_or_else(|_| String::from("???"));
         Instant::now() + Duration::from_secs(6)
     },
     status {
