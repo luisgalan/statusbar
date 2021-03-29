@@ -1,7 +1,6 @@
 # statusbar
 
-simple lightweight and hackable statusbar for use with dwm
+lightweight and programmable statusbar for use with dwm
 
-currently requires xsetroot to work
-
-updates to the individual components of the statusbar are scheduled in a heap such that we only update them when we need to
+the statusbar is configured through the `make_statusbar!` macro in `src/config.rs`.
+tasks are scheduled in a heap and are only updated when they are due.
