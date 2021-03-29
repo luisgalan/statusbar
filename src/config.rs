@@ -29,7 +29,7 @@ fn get_memory() -> Result<String, sys_info::Error> {
     Ok(format!("{}%", percent))
 }
 
-fn get_load() -> Result<String, sys_info::Error> {
+fn get_cpu_load() -> Result<String, sys_info::Error> {
     let load = loadavg()?;
     let num_cores = cpu_num()?;
     let load = (100.0 * load.one / (num_cores as f64)) as u8;
@@ -41,20 +41,20 @@ make_statusbar! {
         time = get_datetime();
         Instant::now() + Duration::from_secs(1)
     },
-    task battery: String {
-        battery = get_battery().unwrap_or_else(|_| String::from("???"));
+    task battery_info: String {
+        battery_info = get_battery().unwrap_or_else(|_| String::from("???"));
         Instant::now() + Duration::from_secs(60)
     },
-    task memory: String {
-        memory = get_memory().unwrap_or_else(|_| String::from("???"));
+    task memory_info: String {
+        memory_info = get_memory().unwrap_or_else(|_| String::from("???"));
         Instant::now() + Duration::from_secs(1)
     },
-    task load: String {
-        load = get_load().unwrap_or_else(|_| String::from("???"));
+    task cpu_load_info: String {
+        cpu_load_info = get_cpu_load().unwrap_or_else(|_| String::from("???"));
         Instant::now() + Duration::from_secs(6)
     },
     status {
-        format!(" ram: {}  cpu: {}  bat: {}  {:27} ", memory, load, battery, time)
+        format!(" ram: {}  cpu: {}  bat: {}  {:27} ", memory_info, cpu_load_info, battery_info, time)
     }
 }
 
