@@ -17,7 +17,7 @@ fn get_datetime() -> String {
 }
 
 fn get_battery() -> Result<String, std::io::Error> {
-    let mut file = File::open("sys/class/power_supply/BAT0/capacity")?;
+    let mut file = File::open("/sys/class/power_supply/BAT0/capacity")?;
     let mut battery = String::new();
     file.read_to_string(&mut battery)?;
     Ok(format!("{}%", battery.trim()))
