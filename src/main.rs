@@ -92,4 +92,3 @@ macro_rules! make_statusbar {
 fn main() {
     config::main_loop();
 }
-

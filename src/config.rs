@@ -1,7 +1,7 @@
 use crate::make_statusbar;
-use std::time::{Duration, Instant};
 use std::fs::File;
 use std::io::prelude::*;
+use std::time::{Duration, Instant};
 
 extern crate chrono;
 use chrono::Local;
@@ -57,4 +57,3 @@ make_statusbar! {
         format!(" ram: {}  cpu: {}  bat: {}  {:27} ", memory_info, cpu_load_info, battery_info, time)
     }
 }
-
