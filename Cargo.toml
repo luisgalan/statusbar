@@ -7,7 +7,7 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-x11rb = "0.8.1"
+x11rb = "0.9"
 chrono = "0.4"
-sys-info = "0.8"
+sys-info = "0.9"
 
